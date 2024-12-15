@@ -69,7 +69,7 @@ export default function LogInForm() {
           className="ml-2 font-bold text-blue-500 hover:cursor-pointer hover:text-blue-700"
           href="./signup"
         >
-          Register
+          Sign up
         </a>
       </div>
     </form>

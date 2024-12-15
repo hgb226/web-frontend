@@ -7,13 +7,12 @@ export const fetchInfo = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching user info:", error);
-    throw error;
   }
 };
 
 export const fetchCourse = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/user/course", {
+    const response = await axios.get(`${API_URL}/course`, {
       withCredentials: true
     });
     console.log("User Data:", response.data);

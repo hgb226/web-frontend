@@ -26,12 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
-    <AuthProvider>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <AuthProvider>
       {children}
+      </AuthProvider>
       </body>
-    </AuthProvider>
     </html>
+
   );
 }

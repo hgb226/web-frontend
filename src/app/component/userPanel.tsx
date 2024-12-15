@@ -4,6 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import userInfoCard from "./user_userInfo"
+import UserInfoCard from "./user_userInfo";
+import { Container } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -17,6 +20,7 @@ function TabPanel(props: TabPanelProps) {
   return (
     <div
       role="tabpanel"
+      className={"w-full"}
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
@@ -24,7 +28,11 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Container>
+            <Box>
+              {children}
+            </Box>
+          </Container>
         </Box>
       )}
     </div>
@@ -59,7 +67,7 @@ export default function UserTabs() {
         <Tab label="Change information" {...a11yProps(2)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <UserInfoCard/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
