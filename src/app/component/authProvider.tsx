@@ -62,11 +62,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         router.push(response.role === "admin" ? "/admin" : "/");
       }
     } catch (error: any) {
-      if (error.response?.status === 403) {
-        alert("Account not verified. Please verify your account.");
-      } else {
-        console.error("Login failed:", error);
-      }
+      alert(error)
     }
   };
 

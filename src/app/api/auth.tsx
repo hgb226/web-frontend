@@ -4,7 +4,7 @@ const API_URL = "http://127.0.0.1:5000/auth";
 
 export async function logIn(email: string, password: string): Promise<any> {
   try {
-    const response = await axios.post(`${API_URL}/login`, { email, password }, { withCredentials: true });
+    await axios.post(`${API_URL}/login`, { email, password }, { withCredentials: true });
     const userInfo = await axios.get(`${API_URL}/me`, { withCredentials: true });
     return userInfo.data;
   } catch (error: any) {
