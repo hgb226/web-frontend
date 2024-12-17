@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/auth";
+const API_URL = "http://127.0.0.1:5000/auth";
 
 export async function logIn(email: string, password: string): Promise<any> {
   try {

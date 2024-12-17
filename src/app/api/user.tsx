@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/user";
+const API_URL = "http://127.0.0.1:5000/user";
 export const fetchInfo = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/auth/me", { withCredentials: true });
+    const response = await axios.get("http://127.0.0.1:5000/auth/me", { withCredentials: true });
     return response.data;
   } catch (error) {
     console.error("Error fetching user info:", error);
