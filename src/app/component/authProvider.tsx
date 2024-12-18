@@ -24,12 +24,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    setIsMounted(true);
-
     const fetchUser = async () => {
       try {
         const response = await fetchInfo();
@@ -43,11 +40,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsAuthenticated(false);
       }
     };
-
-    if (isMounted && isAuthenticated) {
-      fetchUser();
-    }
-  }, [isMounted, isAuthenticated]);
+    fetchUser();
+  }, []);
 
   const login = async (email: string, password: string) => {
     try {
@@ -88,10 +82,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       throw error;
     }
   };
-
-  if (!isMounted) {
-    return null; // Wait for the component to be mounted on the client-side
-  }
 
   return (
     <AuthContext.Provider
