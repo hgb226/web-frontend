@@ -69,6 +69,15 @@ export default function NavBar() {
           value={searchField}
           onChange={(e) => setSearchField(e.target.value)}
         />
+       
+        <Button
+            variant="outlined"
+            onClick={() => {
+              router.push("/chat");
+            }}
+          >
+            Chat
+          </Button>
 
         <div>
           {!isAuthenticated ? (
